@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 st.set_page_config(layout="wide")
 
 # Streamlit UI
-st.title("Agent RAG Demo")
+st.title("Sample RAG Demo")
 data = st.text_area("Input Data:")
 chunk_size = st.number_input("Chunk Size", min_value=10, max_value=500, value=50, step=50)
 overlap_width = st.number_input("Overlap Size", min_value=10, max_value=500, value=10, step=10)
@@ -90,7 +90,8 @@ if st.button('Do RAG'):
 
 
     ##Generating Answer form LLM with retrieved Context
-    temperature = 0.5
+
+
     LLM_Model = 'gpt2'
     llm = pipeline(task='text-generation', model=LLM_Model)
     llm.model.config.pad_token_id = llm.model.config.eos_token_id
